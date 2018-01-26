@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ -n "$JENKINS_URL" ]; then
+	wget -O $HOME/jenkins-cli.jar $JENKINS_URL/jnlpJars/jenkins-cli.jar
+fi
+
+exec jenkins-slave "$@"
