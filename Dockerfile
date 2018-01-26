@@ -25,4 +25,4 @@ WORKDIR ${HOME}
 
 COPY fetch-jenkins-cli /usr/local/bin/fetch-jenkins-cli
 
-ENTRYPOINT ["fetch-jenkins-cli", "ash"]
+ENTRYPOINT ["fetch-jenkins-cli"]
