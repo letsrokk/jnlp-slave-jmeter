@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
 if [ -n "$JENKINS_URL" ]; then
-	wget -O $HOME/jenkins-cli.jar $JENKINS_URL/jnlpJars/jenkins-cli.jar
+	wget -O "$HOME/jenkins-cli.jar" "$JENKINS_URL/jnlpJars/jenkins-cli.jar"
+else
+    PARSED_URL=$(echo "$@" | grep -E -o 'https?://[a-zA-Z0-9.:/\-]+')
+    wget -O "$HOME/jenkins-cli.jar" "$PARSED_URL/jnlpJars/jenkins-cli.jar"
 fi
 
 exec jenkins-slave "$@"
