@@ -23,6 +23,4 @@ ENV PATH $PATH:${JMETER_HOME}/bin
 
 WORKDIR ${HOME}
 
-COPY fetch-jenkins-cli /usr/local/bin/fetch-jenkins-cli
-
-ENTRYPOINT ["fetch-jenkins-cli"]
+ENTRYPOINT ["jenkins-slave"]
