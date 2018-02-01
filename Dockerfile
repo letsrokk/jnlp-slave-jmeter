@@ -1,6 +1,25 @@
 FROM jenkins/jnlp-slave:3.16-1-alpine
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
+########################################################
+### Install Taurus (bzt)
+########################################################
+
+USER root
+
+RUN apk update && apk upgrade \
+  && apk add libxml2-dev libxslt-dev \
+  && apk add py-pip \
+  && apk add py-lxml py-libxml2 py-libxslt py-psutil py-virtualenv
+
+RUN pip install bzt
+
+USER jenkins
+
+########################################################
+### Install Jmeter
+########################################################
+
 ENV JMETER_VERSION 3.3
 ENV JMETER_HOME=/home/jenkins/apache-jmeter
 
