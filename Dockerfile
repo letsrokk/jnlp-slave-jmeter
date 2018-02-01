@@ -1,11 +1,17 @@
 FROM jenkins/jnlp-slave:3.16-1-alpine
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
+USER root
+
+########################################################
+### Update Java security policy (for DNS Cache Manager in Jmeter)
+########################################################
+
+RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_HOME}//jre/lib/security/java.security
+
 ########################################################
 ### Install Taurus (bzt)
 ########################################################
-
-USER root
 
 RUN apk update && apk upgrade \
   && apk add libxml2-dev libxslt-dev \
@@ -42,4 +48,11 @@ ENV PATH $PATH:${JMETER_HOME}/bin
 
 WORKDIR ${HOME}
 
-ENTRYPOINT ["jenkins-slave"]
+########################################################
+### Set Jmeter PerfMon server agent version and url
+########################################################
+
+ENV JMETER_SERVER_AGENT_VERSION 2.2.3
+ENV JMETER_SERVER_AGENT_DOWNLOAD_URL https://github.com/undera/perfmon-agent/releases/download/${JMETER_SERVER_AGENT_VERSION}/ServerAgent-${JMETER_SERVER_AGENT_VERSION}.zip
+
+ENTRYPOINT ["jenkins-slave", "ash"]
