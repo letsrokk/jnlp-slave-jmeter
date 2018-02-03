@@ -22,7 +22,7 @@ RUN apk update && apk upgrade \
   && apk add py-pip \
   && apk add py-lxml py-libxml2 py-libxslt py-psutil py-virtualenv
 
-RUN pip install bzt
+RUN pip install bzt && pip install virtualenv
 
 USER jenkins
 
