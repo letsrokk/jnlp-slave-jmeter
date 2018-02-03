@@ -4,10 +4,14 @@ MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 USER root
 
 ########################################################
-### Update Java security policy (for DNS Cache Manager in Jmeter)
+### Update Java security policies
 ########################################################
 
-RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_HOME}//jre/lib/security/java.security
+RUN wget -O jce_policy.zip  --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip \
+  && unzip jce_policy.zip && rm jce_policy.zip \
+  && cp UnlimitedJCEPolicyJDK8/*.jar ${JAVA_HOME}/jre/lib/security/
+
+RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_HOME}/jre/lib/security/java.security
 
 ########################################################
 ### Install Taurus (bzt)
@@ -43,6 +47,10 @@ RUN ${JMETER_HOME}/bin/PluginsManagerCMD.sh available \
   && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-casutg \
   && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-graphs-vs \
   && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-perfmon
+
+ENV POSTGRESSQL_DRIVER_VERSION 42.2.1
+
+RUN wget -O ${JMETER_HOME}/lib/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar
 
 ENV PATH $PATH:${JMETER_HOME}/bin
 
