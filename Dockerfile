@@ -63,4 +63,4 @@ WORKDIR ${HOME}
 ENV JMETER_SERVER_AGENT_VERSION 2.2.3
 ENV JMETER_SERVER_AGENT_DOWNLOAD_URL https://github.com/undera/perfmon-agent/releases/download/${JMETER_SERVER_AGENT_VERSION}/ServerAgent-${JMETER_SERVER_AGENT_VERSION}.zip
 
-ENTRYPOINT ["jenkins-slave", "ash"]
+ENTRYPOINT ["jenkins-slave"]
