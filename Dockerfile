@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.19-1-alpine
+FROM jenkins/jnlp-slave:3.19-1
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
 USER root
@@ -17,12 +17,11 @@ RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_H
 ### Install Taurus (bzt)
 ########################################################
 
-RUN apk update && apk upgrade \
-  && apk add libxml2-dev libxslt-dev \
-  && apk add py-pip \
-  && apk add py-lxml py-libxml2 py-libxslt py-psutil py-virtualenv
-
-RUN pip install bzt && pip install virtualenv
+RUN apt-get update
+RUN apt-get -y install python python-tk python-pip python-dev \
+  libxml2-dev libxslt-dev zlib1g-dev net-tools \
+  default-jre-headless
+RUN pip install bzt
 
 USER jenkins
 
