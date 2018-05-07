@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.16-1-alpine
+FROM jenkins/jnlp-slave:3.19-1-alpine
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
 USER root
@@ -30,7 +30,7 @@ USER jenkins
 ### Install Jmeter
 ########################################################
 
-ENV JMETER_VERSION 3.3
+ENV JMETER_VERSION 4.0
 ENV JMETER_HOME=/home/jenkins/apache-jmeter
 
 RUN wget -O jmeter.zip http://www-eu.apache.org/dist//jmeter/binaries/apache-jmeter-${JMETER_VERSION}.zip \
