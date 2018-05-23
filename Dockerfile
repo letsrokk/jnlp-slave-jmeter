@@ -36,20 +36,19 @@ RUN wget -O jmeter.zip http://www-eu.apache.org/dist//jmeter/binaries/apache-jme
   && unzip jmeter.zip && rm jmeter.zip \
   && mv apache-jmeter-${JMETER_VERSION} ${JMETER_HOME}
 
+ENV CMDRUNNER_VERSION 2.2
+
 RUN wget -O ${JMETER_HOME}/lib/ext/jmeter-plugins-manager.jar https://jmeter-plugins.org/get/ \
-  && wget -O ${JMETER_HOME}/lib/cmdrunner-2.0.jar http://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.0/cmdrunner-2.0.jar \
+  && wget -O ${JMETER_HOME}/lib/cmdrunner-${CMDRUNNER_VERSION}.jar http://central.maven.org/maven2/kg/apc/cmdrunner/${CMDRUNNER_VERSION}/cmdrunner-${CMDRUNNER_VERSION}.jar \
   && java -cp ${JMETER_HOME}/lib/ext/jmeter-plugins-manager.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
 
 WORKDIR ${JMETER_HOME}
-RUN ${JMETER_HOME}/bin/PluginsManagerCMD.sh available \
-  && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-json \
-  && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-casutg \
-  && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-graphs-vs \
-  && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install jpgc-perfmon
 
 ENV POSTGRESSQL_DRIVER_VERSION 42.2.1
-
 RUN wget -O ${JMETER_HOME}/lib/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar
+
+ENV ACTIVEMQ_VERSION 5.15.4
+RUN wget -O ${JMETER_HOME}/lib/activemq-all-${POSTGRESSQL_DRIVER_VERSION}.jar http://central.maven.org/maven2/org/apache/activemq/activemq-all/${ACTIVEMQ_VERSION}/activemq-all-${ACTIVEMQ_VERSION}.jar
 
 ENV PATH $PATH:${JMETER_HOME}/bin
 
