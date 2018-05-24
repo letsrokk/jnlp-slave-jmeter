@@ -1,0 +1,59 @@
+[2018-05-24 11:14:07,565 INFO root] Taurus CLI Tool v1.11.1
+[2018-05-24 11:14:07,565 DEBUG root] Command-line options: {'verbose': None, 'no_system_configs': None, 'quiet': None, 'log': '/var/folders/bm/4syr987x5tx14cnnhdkyf_7xfhl7v1/T/bzt_dkapEk.log', 'option': None, 'aliases': []}
+[2018-05-24 11:14:07,565 DEBUG root] Python: CPython 2.7.15
+[2018-05-24 11:14:07,565 DEBUG root] OS: ('Darwin', 'mayer-dy-m.fxclub.org', '17.5.0', 'Darwin Kernel Version 17.5.0: Fri Apr 13 19:32:32 PDT 2018; root:xnu-4570.51.2~1/RELEASE_X86_64', 'x86_64', 'i386')
+[2018-05-24 11:14:07,566 INFO root] Starting with configs: []
+[2018-05-24 11:14:07,566 DEBUG root] Using personal config: /Users/majer-dy/.bzt-rc
+[2018-05-24 11:14:07,566 INFO Engine] Configuring...
+[2018-05-24 11:14:07,566 DEBUG Engine] No machine configs dir: /usr/local/Cellar/bzt/1.11.1/libexec/bin/../etc/bzt.d
+[2018-05-24 11:14:07,566 DEBUG Engine] Base configs list: ['/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/resources/base-config.yml']
+[2018-05-24 11:14:07,566 DEBUG Engine.Configuration] Configs: ['/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/resources/base-config.yml']
+[2018-05-24 11:14:07,566 DEBUG Engine.Configuration] Reading /usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/resources/base-config.yml as YAML
+[2018-05-24 11:14:07,596 DEBUG Engine] User configs list: ['/Users/majer-dy/.bzt-rc']
+[2018-05-24 11:14:07,597 DEBUG Engine.Configuration] Configs: ['/Users/majer-dy/.bzt-rc']
+[2018-05-24 11:14:07,598 DEBUG Engine.Configuration] Reading /Users/majer-dy/.bzt-rc as YAML
+[2018-05-24 11:14:07,603 DEBUG Engine.Configuration] Configs: ['/Users/majer-dy/.bzt-rc']
+[2018-05-24 11:14:07,604 DEBUG Engine.Configuration] Reading /Users/majer-dy/.bzt-rc as YAML
+[2018-05-24 11:14:07,618 DEBUG Engine] Requesting updates info: http://gettaurus.org/updates/?version=1.11.1&installID=macos-6a00029472c0
+[2018-05-24 11:14:07,623 INFO Engine] Artifacts dir: /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397
+[2018-05-24 11:14:07,625 DEBUG Engine] New artifact filename: /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/effective
+[2018-05-24 11:14:07,626 DEBUG Engine.Configuration] Dumping YAML config into /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/effective.yml
+[2018-05-24 11:14:07,645 DEBUG Engine.Configuration] Dumping JSON config into /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/effective.json
+[2018-05-24 11:14:07,645 DEBUG Engine.Environment] Replace 'TAURUS_ARTIFACTS_DIR' in environment
+[2018-05-24 11:14:07,646 DEBUG root] Closing log handler: /var/folders/bm/4syr987x5tx14cnnhdkyf_7xfhl7v1/T/bzt_dkapEk.log
+[2018-05-24 11:14:07,646 DEBUG root] Switched writing logs to /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/bzt.log
+[2018-05-24 11:14:07,647 DEBUG root] Linting config
+[2018-05-24 11:14:07,649 INFO Engine] Preparing...
+[2018-05-24 11:14:07,649 DEBUG Engine] Module config: consolidator defaultdict(None, {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'})
+[2018-05-24 11:14:07,649 DEBUG root] Importing module: bzt.modules.aggregator
+[2018-05-24 11:14:08,052 DEBUG Engine] Taurus updates info: {"latest":"1.11.1","needsUpgrade":false}
+[2018-05-24 11:14:08,124 DEBUG Engine] Installation is up-to-date
+[2018-05-24 11:14:08,203 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/modules/aggregator.py'>
+[2018-05-24 11:14:08,204 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2018-05-24 11:14:08,204 DEBUG Engine] Module config: monitoring defaultdict(None, {'class': 'bzt.modules.monitoring.Monitoring'})
+[2018-05-24 11:14:08,204 DEBUG root] Importing module: bzt.modules.monitoring
+[2018-05-24 11:14:08,213 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/modules/monitoring.py'>
+[2018-05-24 11:14:08,213 DEBUG Engine] Module config: local defaultdict(None, {'class': 'bzt.modules.provisioning.Local'})
+[2018-05-24 11:14:08,214 DEBUG root] Importing module: bzt.modules.provisioning
+[2018-05-24 11:14:08,214 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/modules/provisioning.py'>
+[2018-05-24 11:14:08,214 ERROR root] Config Error: No 'execution' is configured. Did you forget to pass config files?
+[2018-05-24 11:14:08,214 DEBUG root] TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+Traceback (most recent call last):
+  File "/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/cli.py", line 249, in perform
+    self.engine.prepare()
+  File "/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/engine.py", line 168, in prepare
+    self.__prepare_provisioning()
+  File "/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/engine.py", line 514, in __prepare_provisioning
+    self.provisioning.prepare()
+  File "/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/modules/provisioning.py", line 68, in prepare
+    super(Local, self).prepare()
+  File "/usr/local/Cellar/bzt/1.11.1/libexec/lib/python2.7/site-packages/bzt/engine.py", line 923, in prepare
+    raise exc
+TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+[2018-05-24 11:14:08,214 INFO Engine] Post-processing...
+[2018-05-24 11:14:08,214 DEBUG Engine.consolidator] Consolidator buffer[0]: []
+[2018-05-24 11:14:08,216 DEBUG Engine.Configuration] Dumping YAML config into /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/effective.yml
+[2018-05-24 11:14:08,234 DEBUG Engine.Configuration] Dumping JSON config into /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/effective.json
+[2018-05-24 11:14:08,235 INFO root] Artifacts dir: /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397
+[2018-05-24 11:14:08,235 WARNING root] Done performing with code: 1
+[2018-05-24 11:14:08,235 DEBUG root] Closing log handler: /Users/majer-dy/Documents/IDEA/jnlp-slave-jmeter/2018-05-24_11-14-07.618397/bzt.log

@@ -43,6 +43,8 @@ RUN wget -O ${JMETER_HOME}/lib/ext/jmeter-plugins-manager.jar https://jmeter-plu
   && java -cp ${JMETER_HOME}/lib/ext/jmeter-plugins-manager.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
 
 WORKDIR ${JMETER_HOME}
+RUN ${JMETER_HOME}/bin/PluginsManagerCMD.sh available \
+  && ${JMETER_HOME}/bin/PluginsManagerCMD.sh install-all-except
 
 ENV POSTGRESSQL_DRIVER_VERSION 42.2.1
 RUN wget -O ${JMETER_HOME}/lib/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRESSQL_DRIVER_VERSION}.jar
