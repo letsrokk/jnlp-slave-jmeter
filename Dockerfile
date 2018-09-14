@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.19-1
+FROM jenkins/jnlp-slave:3.23-1
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
 USER root
@@ -36,7 +36,7 @@ RUN wget -O jmeter.zip http://www-eu.apache.org/dist//jmeter/binaries/apache-jme
   && unzip jmeter.zip && rm jmeter.zip \
   && mv apache-jmeter-${JMETER_VERSION} ${JMETER_HOME}
 
-ENV CMDRUNNER_VERSION 2.2
+ENV CMDRUNNER_VERSION 2.2.1
 
 RUN wget -O ${JMETER_HOME}/lib/ext/jmeter-plugins-manager.jar https://jmeter-plugins.org/get/ \
   && wget -O ${JMETER_HOME}/lib/cmdrunner-${CMDRUNNER_VERSION}.jar http://central.maven.org/maven2/kg/apc/cmdrunner/${CMDRUNNER_VERSION}/cmdrunner-${CMDRUNNER_VERSION}.jar \
