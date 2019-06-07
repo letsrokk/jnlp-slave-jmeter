@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.29-1
+FROM jenkins/jnlp-slave:3.23-1
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
 USER root
