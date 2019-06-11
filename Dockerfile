@@ -18,12 +18,15 @@ RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_H
 ########################################################
 
 ENV BZT_VERSION 1.13.7
+COPY dist/bzt-${BZT_VERSION}.tar.gz /tmp/bzt-${BZT_VERSION}.tar.gz
 
 RUN apt-get update \
     && apt-get -y install python default-jre-headless \
     python-tk python-pip python-dev \
     libxml2-dev libxslt-dev zlib1g-dev net-tools
-RUN pip install bzt==${BZT_VERSION} && pip install virtualenv
+#RUN pip install bzt==${BZT_VERSION} && pip install virtualenv
+#Temporary workaround while Taurus is getting fixed
+RUN pip install virtualenv && pip install -f /tmp/bzt-${BZT_VERSION}.tar.gz
 
 USER jenkins
 
