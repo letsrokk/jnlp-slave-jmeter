@@ -26,7 +26,7 @@ RUN apt-get update \
     libxml2-dev libxslt-dev zlib1g-dev net-tools
 #RUN pip install virtualenv && pip install bzt==${BZT_VERSION}
 #Temporary workaround while Taurus is getting fixed
-RUN pip install -f /tmp/bzt-${BZT_VERSION}.tar.gz
+RUN pip install /tmp/bzt-${BZT_VERSION}.tar.gz
 
 USER jenkins
 
