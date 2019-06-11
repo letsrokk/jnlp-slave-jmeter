@@ -21,12 +21,12 @@ ENV BZT_VERSION 1.13.7
 COPY dist/bzt-${BZT_VERSION}.tar.gz /tmp/bzt-${BZT_VERSION}.tar.gz
 
 RUN apt-get update \
-    && apt-get -y install python default-jre-headless \
-    python-tk python-pip python-dev \
+    && apt-get -y install default-jre-headless \
+    python3 python3-tk python3-pip python3-dev \
     libxml2-dev libxslt-dev zlib1g-dev net-tools
 #RUN pip install virtualenv && pip install bzt==${BZT_VERSION}
 #Temporary workaround while Taurus is getting fixed
-RUN pip install /tmp/bzt-${BZT_VERSION}.tar.gz
+RUN pip3 install /tmp/bzt-${BZT_VERSION}.tar.gz
 
 USER jenkins
 
