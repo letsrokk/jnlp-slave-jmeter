@@ -1,11 +1,11 @@
 FROM jenkins/jnlp-slave:3.23-1
 MAINTAINER Dmitry Mayer <mayer.dmitry@gmail.com>
 
-USER root
-
 ########################################################
 ### Update Java security policies
 ########################################################
+
+USER root
 
 RUN wget -O jce_policy.zip  --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip \
   && unzip jce_policy.zip && rm jce_policy.zip \
@@ -13,9 +13,13 @@ RUN wget -O jce_policy.zip  --header "Cookie: oraclelicense=accept-securebackup-
 
 RUN sed -i '/#networkaddress.cache.ttl=-1/c\networkaddress.cache.ttl=0' ${JAVA_HOME}/jre/lib/security/java.security
 
+USER jenkins
+
 ########################################################
 ### Install Taurus (bzt)
 ########################################################
+
+USER root
 
 ENV BZT_VERSION 1.13.7
 COPY dist/bzt-${BZT_VERSION}.tar.gz /tmp/bzt-${BZT_VERSION}.tar.gz
