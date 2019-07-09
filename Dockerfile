@@ -21,16 +21,13 @@ USER jenkins
 
 USER root
 
-ENV BZT_VERSION 1.13.7
-COPY dist/bzt-${BZT_VERSION}.tar.gz /tmp/bzt-${BZT_VERSION}.tar.gz
+ENV BZT_VERSION 1.13.8
 
 RUN apt-get update \
     && apt-get -y install default-jre-headless \
     python3 python3-tk python3-pip python3-dev \
     libxml2-dev libxslt-dev zlib1g-dev net-tools
-#RUN pip install virtualenv && pip install bzt==${BZT_VERSION}
-#Temporary workaround while Taurus is getting fixed
-RUN pip3 install /tmp/bzt-${BZT_VERSION}.tar.gz
+RUN pip install virtualenv && pip install bzt==${BZT_VERSION}
 
 USER jenkins
 
@@ -38,7 +35,7 @@ USER jenkins
 ### Install Gatling
 ########################################################
 
-ENV GATLING_VERSION 3.1.2
+ENV GATLING_VERSION 3.1.3
 ENV GATLING_HOME /home/jenkins/gatling
 
 RUN wget -O gatling.zip https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/${GATLING_VERSION}/gatling-charts-highcharts-bundle-${GATLING_VERSION}-bundle.zip \
