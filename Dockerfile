@@ -27,7 +27,7 @@ RUN apt-get update \
     && apt-get -y install default-jre-headless \
     python3 python3-tk python3-pip python3-dev \
     libxml2-dev libxslt-dev zlib1g-dev net-tools
-RUN pip3 install virtualenv && pip3 install bzt==${BZT_VERSION}
+RUN pip3 install bzt==${BZT_VERSION}
 
 USER jenkins
 
