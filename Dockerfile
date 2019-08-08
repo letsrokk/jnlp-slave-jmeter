@@ -35,7 +35,7 @@ USER jenkins
 ### Install Gatling
 ########################################################
 
-ENV GATLING_VERSION 3.1.3
+ENV GATLING_VERSION 3.2.0
 ENV GATLING_HOME /home/jenkins/gatling
 
 RUN wget -O gatling.zip https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/${GATLING_VERSION}/gatling-charts-highcharts-bundle-${GATLING_VERSION}-bundle.zip \
